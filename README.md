@@ -11,6 +11,8 @@
 ## Install Tools ##
 * ffmpeg
 
+  https://www.ffmpeg.org/
+
 ## Setup ##
 1. Clone repository
 ```
@@ -20,11 +22,18 @@ git clone https://github.com/ryonakennedy/CAP6610-Project
 ```
 cd CAP6610-Project
 ```
-3. Create folder for music files used to extract features from
+3. Install project requirements (linux example)
+```
+pip3 install -r requirements.txt
+```
+```
+apt-get install ffmpeg
+```
+4. Create folder for music files used to extract features from
 ```
 mkdir Dataset
 ```
-4. Copy music files into Dataset folder retaining music folder hierarchy
+5. Copy music files into Dataset folder retaining music folder hierarchy
 (make sure only audio files are in directories or script may halt/fail)
 ```
 Dataset
