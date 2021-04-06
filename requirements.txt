@@ -5,3 +5,5 @@ matplotlib
 audioread
 numpy
 pydub
+torch
+torchvision
