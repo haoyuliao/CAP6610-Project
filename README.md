@@ -7,6 +7,8 @@
 * pandas
 * opencv-python
 * pydub
+* torch
+* torchvision
 
 ## Install Tools ##
 * ffmpeg
