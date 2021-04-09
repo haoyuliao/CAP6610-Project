@@ -9,6 +9,7 @@
 * pydub
 * torch
 * torchvision
+* openpyxl
 
 ## Install Tools ##
 * ffmpeg
