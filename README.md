@@ -56,13 +56,3 @@ For extracting features from sound files
 ```
 ./CNN2_BCELoss.py
 ```
-
-## Running New Classifiers ##
-Import File/Module CAP6610 in CAP6610.py
-```
-import CAP6610
-```
-Get Datasets for training/testing
-```
-trainData, testData = CAP6610.getData()
-```
