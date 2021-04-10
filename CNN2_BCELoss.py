@@ -9,6 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import matplotlib.pyplot as plt
+import CAP6610
 
 #---CNN2_BCELosss Class with Default Training Parameters---#
 
@@ -108,8 +109,36 @@ class CNN2_BCELoss:
 #---END---CNN2_BCELosss Class with Training Parameters---#
 
 
-#---Function for Loading Training / Test Data From File---#
+#function for running this file as a script
+def main():
+    
+    #get training and test data from CAP6610 module
+    trainData, testData = CAP6610.getData()
+    
+    trainLoader = torch.utils.data.DataLoader(trainData, shuffle=True, batch_size=5)
+    testLoader = torch.utils.data.DataLoader(testData, shuffle=False, batch_size=5)
+    
+    #get data from file loaded
+    #trainLoader, testLoader = getData()
+    
+    #instantate CNN2_BCELoss Neural Network with default parameters
+    NN = CNN2_BCELoss()
+    
+    #train the network with loaded training data
+    NN.train(trainLoader, epochs=100)
+    
+    #evaluate and print confusion matrices for data
+    NN.printConfusionMatrix(trainLoader)
+    NN.printConfusionMatrix(testLoader)
+    
 
+#test if user is running this file as a script
+if __name__ == "__main__":
+    #run function defined as main
+    main()
+
+#---Function for Loading Training / Test Data From File---#
+'''
 def getData():
     
 
@@ -152,31 +181,9 @@ def getData():
     testLoader = torch.utils.data.DataLoader(testData, shuffle=False, batch_size=5)
 
     return trainLoader, testLoader
-
+'''
 #---END---Function for Loading Training / Test Data From File---#
 
-
-#function for running this file as a script
-def main():
-    
-    #get data from file loaded
-    trainLoader, testLoader = getData()
-    
-    #instantate CNN2_BCELoss Neural Network with default parameters
-    NN = CNN2_BCELoss()
-    
-    #train the network with loaded training data
-    NN.train(trainLoader, epochs=100)
-    
-    #evaluate and print confusion matrices for data
-    NN.printConfusionMatrix(trainLoader)
-    NN.printConfusionMatrix(testLoader)
-    
-
-#test if user is running this file as a script
-if __name__ == "__main__":
-    #run function defined as main
-    main()
 
 
 #---Refactored Code for Classless Solution---#
