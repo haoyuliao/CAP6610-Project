@@ -46,8 +46,23 @@ Dataset/Not_Progressive_Rock/
 ├── Other_Songs
 └── Top_Of_The_Pops
 ```
-## Usage ##
+## Extracting Data for Classifiers ##
 For extracting features from sound files
 ```
 ./ExtractFeatures.py
+```
+## Running Classifiers ##
+* CNN2_BCELoss
+```
+./CNN2_BCELoss.py
+```
+
+## Running New Classifiers ##
+Import File/Module CAP6610 in CAP6610.py
+```
+import CAP6610
+```
+Get Datasets for training/testing
+```
+trainData, testData = CAP6610.getData()
 ```
