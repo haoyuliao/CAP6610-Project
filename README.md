@@ -10,6 +10,7 @@
 * torch
 * torchvision
 * openpyxl
+* tensorflow
 
 ## Install Tools ##
 * ffmpeg
@@ -55,4 +56,8 @@ For extracting features from sound files
 * CNN2_BCELoss
 ```
 ./CNN2_BCELoss.py
+```
+* Fisher Discriminant, Random Forests, Linear SVM, Regression Tree
+```
+./SciKitLearnClassifiers.py
 ```
