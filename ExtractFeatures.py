@@ -33,6 +33,26 @@ saveArr = []
 saveImgArr = []
 saveImgArrLog=[]
 labels = []
+
+
+chroma_stft = []
+chroma_cqt = []
+chroma_cens = []
+melspectogram = []
+mfcc = []
+rms = []
+spectral_centroid = []
+spectral_bandwidth = []
+spectral_contrast = []
+spectral_flatness = []
+spectral_rolloff = []
+poly_features = []
+tonnetz = []
+zero_crossing_rate = []
+tempogram = []
+fourier_tempogram = []
+
+
 filesName = []
 for folder in folders:
     if folder == 'Progressive_Rock_Songs':
@@ -75,10 +95,33 @@ for folder in folders:
         plt.clf()
         plt.close('all')
         plt.figure(1, figsize=(14, 5))
+        
+        #load file in librosa
         x , sr = librosa.load(audio_path, sr=22050, offset=totalDur/2-30, duration=60.0) 
+        
         #display Spectrogram
         X = librosa.stft(x, hop_length=256, n_fft=4096)
         Xdb = librosa.amplitude_to_db(abs(X), ref=np.max)
+        
+        #get features
+        feature1 = librosa.feature.chroma_stft(x,sr)        
+        feature2 = librosa.feature.chroma_cqt(x,sr)
+        feature3 = librosa.feature.chroma_cens(x,sr)
+        feature4 = librosa.feature.melspectrogram(x,sr)
+        feature5 = librosa.feature.mfcc(x,sr)
+        feature6 = librosa.feature.rms(x,sr)
+        feature7 = librosa.feature.spectral_centroid(x,sr)
+        feature8 = librosa.feature.spectral_bandwidth(x,sr)
+        feature9 = librosa.feature.spectral_contrast(x,sr)
+        feature10 = librosa.feature.spectral_flatness(x)
+        feature11 = librosa.feature.spectral_rolloff(x,sr)
+        feature12 = librosa.feature.poly_features(x,sr)
+        feature13 = librosa.feature.tonnetz(x,sr)
+        feature14 = librosa.feature.zero_crossing_rate(x)
+        feature15 = librosa.feature.tempogram(x,sr)
+        feature16 = librosa.feature.fourier_tempogram(x,sr)
+        
+        
         print(Xdb.shape)
         if Xdb.shape[1] != 5168:
             continue
@@ -131,6 +174,24 @@ for folder in folders:
         saveImgArr.append(resizeImg1)
         saveImgArrLog.append(resizeImg2)
         
+        #add to feature arrays
+        chroma_stft.append(feature1)
+        chroma_cqt.append(feature2)
+        chroma_cens.append(feature3)
+        melspectogram.append(feature4)
+        mfcc.append(feature5)
+        rms.append(feature6)
+        spectral_centroid.append(feature7)
+        spectral_bandwidth.append(feature8)
+        spectral_contrast.append(feature9)
+        spectral_flatness.append(feature10)
+        spectral_rolloff.append(feature11)
+        poly_features.append(feature12)
+        tonnetz.append(feature13)
+        zero_crossing_rate.append(feature14)
+        tempogram.append(feature15)
+        fourier_tempogram.append(feature16)
+        
         database['idx'].append(idx)
         database['ReName'].append(saveName)
         database['OriName'].append(fileName)
@@ -150,6 +211,24 @@ np.save('./ExtractDataset/LogImages.npy', saveImgArrLog)
 np.save('./ExtractDataset/Labels.npy', labels)
 np.save('./ExtractDataset/FilesName.npy', filesName) 
 
+createDirIfMissing('./ExtractDataset/Features/')
+np.save('./ExtractDataset/Features/chroma_stft.npy',chroma_stft)
+np.save('./ExtractDataset/Features/chroma_cqt.npy',chroma_cqt)
+np.save('./ExtractDataset/Features/chroma_cens.npy',chroma_cens)
+np.save('./ExtractDataset/Features/melspectogram.npy',melspectogram)
+np.save('./ExtractDataset/Features/mfcc.npy',mfcc)
+np.save('./ExtractDataset/Features/rms.npy',rms)
+np.save('./ExtractDataset/Features/spectral_centroid.npy',spectral_centroid)
+np.save('./ExtractDataset/Features/spectral_bandwidth.npy',spectral_bandwidth)
+np.save('./ExtractDataset/Features/spectral_contrast.npy',spectral_contrast)
+np.save('./ExtractDataset/Features/spectral_flatness.npy',spectral_flatness)
+np.save('./ExtractDataset/Features/spectral_rolloff.npy',spectral_rolloff)
+np.save('./ExtractDataset/Features/poly_features.npy',poly_features)
+np.save('./ExtractDataset/Features/tonnetz.npy',tonnetz)
+np.save('./ExtractDataset/Features/zero_crossing_rate.npy',zero_crossing_rate)
+np.save('./ExtractDataset/Features/tempogram.npy',tempogram)
+np.save('./ExtractDataset/Features/fourier_tempogram.npy',fourier_tempogram)
+        
 DatabaseToPd = pd.DataFrame(data=database)
 DatabaseToPd.to_excel('Database.xlsx', index=True)
 
