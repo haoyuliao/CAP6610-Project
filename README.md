@@ -69,7 +69,7 @@ Extract Raw Data
 ```
 ./save_data.py
 ```
-Extract 30 second snippets from Raw Data
+Extract snippets from Raw Data
 ```
 ./save_snippets.py
 ```
