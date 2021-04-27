@@ -63,3 +63,5 @@ For extracting features from sound files
 ```
 ./SciKitLearnClassifiers.py
 ```
+## Method 2 ##
+### Extracting Data for Classifiers ###
