@@ -48,12 +48,12 @@ Dataset/Not_Progressive_Rock/
 ├── Other_Songs
 └── Top_Of_The_Pops
 ```
-## Extracting Data for Classifiers ##
+### Extracting Data for Classifiers ###
 For extracting features from sound files
 ```
 ./ExtractFeatures.py
 ```
-## Running Classifiers ##
+### Running Classifiers ###
 * CNN2_BCELoss
 ```
 ./CNN2_BCELoss.py
