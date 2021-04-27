@@ -77,4 +77,10 @@ Extract snippets from Raw Data
 * Classifier-Attention-Based CNN
 
 Train
+```
+./train.py
+```
 Evaluate
+```
+./evaluate.py
+```
