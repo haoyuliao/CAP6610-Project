@@ -48,6 +48,7 @@ Dataset/Not_Progressive_Rock/
 ├── Other_Songs
 └── Top_Of_The_Pops
 ```
+## Method 1 ##
 ### Extracting Data for Classifiers ###
 For extracting features from sound files
 ```
