@@ -75,3 +75,5 @@ Extract snippets from Raw Data
 ```
 ### Running Classifiers ###
 * Classifier-Attention-Based CNN
+Train
+Evaluate
