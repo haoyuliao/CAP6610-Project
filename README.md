@@ -11,6 +11,7 @@
 * torchvision
 * openpyxl
 * tensorflow
+* keras
 
 ## Install Tools ##
 * ffmpeg
@@ -47,12 +48,13 @@ Dataset/Not_Progressive_Rock/
 ├── Other_Songs
 └── Top_Of_The_Pops
 ```
-## Extracting Data for Classifiers ##
+## Method 1 ##
+### Extracting Data for Classifiers ###
 For extracting features from sound files
 ```
 ./ExtractFeatures.py
 ```
-## Running Classifiers ##
+### Running Classifiers ###
 * CNN2_BCELoss
 ```
 ./CNN2_BCELoss.py
@@ -60,4 +62,25 @@ For extracting features from sound files
 * Fisher Discriminant, Random Forests, Linear SVM, Regression Tree
 ```
 ./SciKitLearnClassifiers.py
+```
+## Method 2 ##
+### Extracting Data for Classifiers ###
+Extract Raw Data
+```
+./save_data.py
+```
+Extract snippets from Raw Data
+```
+./save_snippets.py
+```
+### Running Classifiers ###
+* Classifier-Attention-Based CNN
+
+Train
+```
+./train.py
+```
+Evaluate
+```
+./evaluate.py
 ```
