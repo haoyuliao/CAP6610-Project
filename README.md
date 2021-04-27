@@ -73,3 +73,5 @@ Extract snippets from Raw Data
 ```
 ./save_snippets.py
 ```
+### Running Classifiers ###
+* Classifier-Attention-Based CNN
