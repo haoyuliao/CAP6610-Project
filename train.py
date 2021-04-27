@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from cab_cnn import get_model
 import numpy as np
 import tensorflow as tf

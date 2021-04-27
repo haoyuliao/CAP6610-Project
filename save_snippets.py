@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import math
 import pickle
 from matplotlib import pyplot as plt

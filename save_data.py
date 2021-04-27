@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import librosa
 import librosa.display
 from os import walk
