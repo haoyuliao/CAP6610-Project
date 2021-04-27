@@ -11,6 +11,7 @@
 * torchvision
 * openpyxl
 * tensorflow
+* keras
 
 ## Install Tools ##
 * ffmpeg
