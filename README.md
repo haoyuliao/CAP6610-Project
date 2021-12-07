@@ -1,5 +1,6 @@
-# CAP6610-Project
-
+# CAP6610-Project-Identify the style of song 
+* This project is for classy the style of music which are Progressive and non-Progressive. First, the songs of music are transferred into images by librosa. Then, the classifiers such as CNN, GoogLeNet, and ResNet-50 try to identify the style of the song by image-based.
+* 
 ## Install Dependencies ##
 * Python3
 * librosa
